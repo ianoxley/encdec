@@ -1,7 +1,7 @@
 // encdec.js
 //
 
-function BaseEncoder(alphabet) {
+function EncDec(alphabet) {
     var baseCount = alphabet.length;
 
     return {
