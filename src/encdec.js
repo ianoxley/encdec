@@ -1,4 +1,4 @@
-// base-encode.js
+// encdec.js
 //
 
 function BaseEncoder(alphabet) {
@@ -28,7 +28,6 @@ function BaseEncoder(alphabet) {
 			var decoded = 0,
 	            multi = 1;
 
-			// Reverse s
             s = s.split('').reverse().join('');
 
 	        for (var i = 0, max = s.length; i < max; i++) {
