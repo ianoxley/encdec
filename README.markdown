@@ -4,6 +4,6 @@ encdec is a small JavaScript library to help you encode numbers and decode strin
 
 Usage
 -----
-`var base32 = new EncDec('ABCDEFGHIJKLMNOPQRSTUVWXYZ234567');
-console.log(base32.encode(1000000));
-console.log(base32.decode('JRH5H'));`
+`var base32 = new EncDec('ABCDEFGHIJKLMNOPQRSTUVWXYZ234567');`
+`console.log(base32.encode(1000000));`
+`console.log(base32.decode('JRH5H'));`
