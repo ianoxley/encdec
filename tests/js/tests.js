@@ -33,6 +33,10 @@ $(document).ready(function() {
         equals(this.base58.encode(1000.123), 'if');
     });
 
+    test('base58 encode undefined', function() {
+        equals(this.base58.encode(undefined), '');
+    });
+
     test('base58 decode', function() {
         equals(this.base58.decode('Tgmc'), 10002343);
         equals(this.base58.decode('if'), 1000); 
@@ -48,6 +52,10 @@ $(document).ready(function() {
     test('base58 decode not a string', function() {
         equals(this.base58.decode(1000), 0);
         expect(2);
+    });
+
+    test('base58 decode undefined returns zero', function() {
+        equals(this.base58.decode(undefined), 0);
     });
 
     module('base32', {
