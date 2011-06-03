@@ -2,14 +2,23 @@
 //
 
 function EncDec(alphabet) {
+    var BASE_58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+    
+    alphabet = alphabet || BASE_58;
     var baseCount = alphabet.length;
+    var cache = {};
 
     return {
         encode : function(num) {
+            if (isNaN(num) || num < 0) {
+                return '';
+            }
+
+            if (cache[num]) {
+                return cache[num];
+            }
+
 			var encode = '';
-	        if (num < 0) {
-	            return '';
-	        }
 
 	        while (num >= baseCount) {
 	            var mod = num % baseCount;
@@ -21,10 +30,19 @@ function EncDec(alphabet) {
 	            encode = alphabet[num] + encode;
 	        }
 
+            cache[num] = encode;
 	        return encode;
         },
                
         decode : function(s) {
+            if (typeof s !== 'string') {
+                return 0;
+            }
+
+            if (cache[s]) {
+                return cache[s];
+            }
+
 			var decoded = 0,
 	            multi = 1;
 
@@ -35,6 +53,7 @@ function EncDec(alphabet) {
 	            multi = multi * baseCount;
 	        }
 
+            cache[s] = decoded;
 	        return decoded;
         }
     };

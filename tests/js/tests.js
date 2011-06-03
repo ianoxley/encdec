@@ -17,14 +17,33 @@ $(document).ready(function() {
         equals(this.base58.encode(-1), '');
         equals(this.base58.encode(10002343), 'Tgmc');
         equals(this.base58.encode(1000), 'if');
-        expect(5);
+        // Call encode on the same number to check the cache
+        // returns the same result
+        equals(this.base58.encode(1000), 'if');
+        equals(this.base58.encode(1000), 'if');
+        expect(7);
+    });
+
+    test('base58 encode NaN', function() {
+        equals(this.base58.encode('foo'), '');
+        expect(2);
     });
 
     test('base58 decode', function() {
         equals(this.base58.decode('Tgmc'), 10002343);
         equals(this.base58.decode('if'), 1000); 
+        // Call decode a few times on the same number to check the cache is
+        // working correctly
+        equals(this.base58.decode('if'), 1000); 
+        equals(this.base58.decode('if'), 1000); 
+
         equals(this.base58.decode(''), 0);
-        expect(4);
+        expect(6);
+    });
+
+    test('base58 decode not a string', function() {
+        equals(this.base58.decode(1000), 0);
+        expect(2);
     });
 
     module('base32', {
