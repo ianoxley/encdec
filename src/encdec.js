@@ -10,7 +10,12 @@ function EncDec(alphabet) {
 
     return {
         encode : function(num) {
-            if (isNaN(num) || num < 0) {
+            if (isNaN(num)) {
+                return '';
+            }
+
+            num = parseInt(num, 10);
+            if (num < 0) {
                 return '';
             }
 
@@ -44,9 +49,8 @@ function EncDec(alphabet) {
             }
 
 			var decoded = 0,
-	            multi = 1;
-
-            s = s.split('').reverse().join('');
+	            multi = 1,
+                s = s.split('').reverse().join('');
 
 	        for (var i = 0, max = s.length; i < max; i++) {
 	            decoded += multi * alphabet.indexOf(s[i]);

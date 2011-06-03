@@ -29,6 +29,10 @@ $(document).ready(function() {
         expect(2);
     });
 
+    test('base58 encode decimal strips anything after decimal point', function() {
+        equals(this.base58.encode(1000.123), 'if');
+    });
+
     test('base58 decode', function() {
         equals(this.base58.decode('Tgmc'), 10002343);
         equals(this.base58.decode('if'), 1000); 
