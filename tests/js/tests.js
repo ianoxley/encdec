@@ -7,7 +7,7 @@ $(document).ready(function() {
     module('base58', {
         setup: function() {
             var alphabet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
-            this.base58 = new EncDec(alphabet);
+            this.base58 = encdec(alphabet);
             equals(alphabet.length, 58);
         }
     });
@@ -61,7 +61,7 @@ $(document).ready(function() {
     module('base32', {
         setup: function() {
             var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-            this.base32 = new EncDec(alphabet);
+            this.base32 = encdec(alphabet);
             equals(alphabet.length, 32);
         }
     });
@@ -84,7 +84,7 @@ $(document).ready(function() {
     module('base64', {
         setup: function() {
             var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-            this.base64 = new EncDec(alphabet);
+            this.base64 = encdec(alphabet);
             equals(alphabet.length, 64);
         }
     });

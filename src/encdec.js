@@ -1,7 +1,7 @@
 // encdec.js
 //
 
-function EncDec(alphabet) {
+function encdec(alphabet) {
     var BASE_58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
     
     alphabet = alphabet || BASE_58;
