@@ -37,6 +37,13 @@ $(document).ready(function() {
         equals(this.base58.encode(undefined), '');
     });
 
+
+    test('reversed string encodes to different value', function() {
+      equals(this.base58.encode(255), '5p');
+      equals(this.base58.decode('5p'), 255);
+      equals(this.base58.decode('p5'), 1338);
+    });
+
     test('base58 decode', function() {
         equals(this.base58.decode('Tgmc'), 10002343);
         equals(this.base58.decode('if'), 1000); 
