@@ -1,0 +1,23 @@
+{
+  "name": "encdec",
+  "version": "0.1.0",
+  "description": "A small JavaScript library for baseXX encoding and decoding",
+  "main": "lib/encdec.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "foobar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ianoxley/encdec.git"
+  },
+  "keywords": [
+    "javascript",
+    "encoding",
+    "decoding"
+  ],
+  "author": "Ian Oxley",
+  "license": "MIT"
+}
