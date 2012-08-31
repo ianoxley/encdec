@@ -1,22 +1,13 @@
 // nodeunit tests for encdec.js
 var encdec = require('../lib/encdec');
 
-console.log("ENCDEC");
-console.log(encdec);
-
 exports.group = {
   setUp: function(callback) {
     this.base58 = encdec.create();
-    console.log("DEBUG SETUP");
-    console.log(this);
-    console.log("END DEBUG");
     callback();
   },
 
   testBase58Encode: function(test) {
-    console.log("DEBUG TEST ENCODE");
-    console.log(this);
-    console.log("END DEBUG");
     test.expect(5);
     test.equals(this.base58.encode(0), '');
     test.equals(this.base58.encode(-1), '');
@@ -33,7 +24,7 @@ exports.group = {
   testBase58Decode: function(test) {
     test.expect(5);
 
-    test.equals(this.base58.decode('Tgmc', 10002343));
+    test.equals(this.base58.decode('Tgmc'), 10002343);
     test.equals(this.base58.decode('if'), 1000);
 
     // Call decode a few times on the same number to check the cache is
