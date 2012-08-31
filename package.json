@@ -1,13 +1,17 @@
 {
   "name": "encdec",
   "version": "0.1.0",
-  "description": "A small JavaScript library for baseXX encoding and decoding",
+  "description": "A small JavaScript library for baseXX encoding and decoding. Defaults to base58, but can easily be used for base32, base64, etc.",
   "main": "lib/encdec.js",
+  "bugs": {
+    "url": "https://github.com/ianoxley/encdec/issues"
+  },
   "directories": {
-    "test": "tests"
+    "lib": "./lib",
+    "test": "./test"
   },
   "scripts": {
-    "test": "foobar"
+    "test": "nodeunit"
   },
   "repository": {
     "type": "git",
@@ -16,8 +20,11 @@
   "keywords": [
     "javascript",
     "encoding",
-    "decoding"
+    "decoding",
+    "base58",
+    "base32",
+    "base64"
   ],
-  "author": "Ian Oxley",
+  "author": "Ian Oxley <ijoxley@gmail.com> (http://ianoxley.com/)",
   "license": "MIT"
 }
