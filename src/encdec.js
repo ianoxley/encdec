@@ -1,12 +1,13 @@
 // encdec.js
 //
 
+/* jshint unused:false */
+
 function encdec(alphabet) {
   var BASE_58 = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
 
   alphabet = alphabet || BASE_58;
-  var baseCount = alphabet.length,
-      cache = {};
+  var baseCount = alphabet.length;
 
   return {
     encode : function(num) {
@@ -19,10 +20,6 @@ function encdec(alphabet) {
         return '';
       }
 
-      if (cache[num]) {
-        return cache[num];
-      }
-
       var encode = '';
 
       while (num >= baseCount) {
@@ -31,21 +28,16 @@ function encdec(alphabet) {
             num = parseInt(num / baseCount, 10);
       }
 
-      if (num) {
+      if (num || num === 0) {
         encode = alphabet[num] + encode;
       }
 
-      cache[num] = encode;
       return encode;
     },
 
     decode : function(s) {
       if (typeof s !== 'string') {
         return 0;
-      }
-
-      if (cache[s]) {
-        return cache[s];
       }
 
       var decoded = 0,
@@ -57,7 +49,6 @@ function encdec(alphabet) {
         multi = multi * baseCount;
       }
 
-      cache[s] = decoded;
       return decoded;
     }
   };
